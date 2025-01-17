@@ -11,7 +11,7 @@ from model import Net  # もしNetクラスが別のファイルに定義され�
 # 'mnist_cnn.pt'が同じディレクトリにあるかどうかを確認
 try:
     model = Net()
-    model.load_state_dict(torch.load('mnist_cnn.pt'))
+    model.load_state_dict(torch.load('mnist_cnn.pt', weights_only=True))  # weights_only=Trueを追加
     model.eval()
 except FileNotFoundError:
     st.error("Model file 'mnist_cnn.pt' not found. Please ensure it is in the same directory as this script.")
